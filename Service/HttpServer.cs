@@ -56,8 +56,7 @@ namespace Hapo31.kusidango.Service
             try
             {
                 var resText = "\"ok\"\r\n\r\n";
-                var content = System.Text.Encoding.ASCII.GetBytes(resText);
-                resWriter.Write(content.Select(v => (char)v));
+                resWriter.Write(resText);
                 resWriter.Flush();
                 resWriter.Close();
             }

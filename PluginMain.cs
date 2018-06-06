@@ -36,13 +36,13 @@ namespace Hapo31.kusidango
 
         private void OnReceiveRequestHandler(HttpListenerRequest req, HttpListenerResponse res)
         {
-            var query = req.RawUrl.QueryParse();
-            var talkData = createDataFromQuery(query);
+            var query = req.QueryParse();
+            var talkData = CreateDataFromQuery(query);
             Pub.AddTalkTask(talkData.Message, talkData.Speed, talkData.Tone, talkData.Volume, talkData.Voice);
         }
 
 
-        private TalkData createDataFromQuery(Dictionary<string, string> query)
+        private TalkData CreateDataFromQuery(Dictionary<string, string> query)
         {
             if (query.ContainsKey("message"))
             {
